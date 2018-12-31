@@ -9,7 +9,7 @@ import {Post} from '../Post';
 export class PostListComponent implements OnInit {
 
   @Input() posts: Array<Post>;
-  newPost: Post;
+  postToAdd: Post;
 
   constructor() {
     this.resetPostItem();
@@ -19,7 +19,7 @@ export class PostListComponent implements OnInit {
   }
 
   resetPostItem() {
-    this.newPost = new Post('', '');
+    this.postToAdd = new Post('', '');
   }
 
   onAddPost(post) {
