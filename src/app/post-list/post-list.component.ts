@@ -9,10 +9,31 @@ import {Post} from '../Post';
 export class PostListComponent implements OnInit {
 
   @Input() posts: Array<Post>;
+  newPost: Post;
 
-  constructor() { }
+  constructor() {
+    this.resetPostItem();
+  }
 
   ngOnInit() {
+  }
+
+  resetPostItem() {
+    this.newPost = new Post('', '');
+  }
+
+  onAddPost(post) {
+    if (post.title === '' || post.content === '') {
+      return;
+    }
+    if (this.posts === undefined) {
+      this.posts = [];
+    }
+    // set new date
+    post.createdAt = new Date();
+    this.posts.push(post);
+    // reset data
+    this.resetPostItem();
   }
 
 }

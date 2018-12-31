@@ -5,4 +5,21 @@
                       [title]="post.title"
                       [content]="post.content"
                       [createdAt]="post.createdAt"></app-post-list-item>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <fieldset>
+        <legend>Add new post</legend>
+        <div class="form-group">
+          <label for="title">title</label>
+          <input type="text" id="title" class="form-control" [(ngModel)]="newPost.title">
+        </div>
+        <div class="form-group">
+          <label for="content">content</label>
+          <textarea rows="4" id="content" class="form-control" [(ngModel)]="newPost.content"></textarea>
+        </div>
+        <button class="btn btn-default" (click)="onAddPost(newPost)">Post</button>
+      </fieldset>
+    </div>
+  </div>
 </ul>
