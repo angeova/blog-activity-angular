@@ -20,7 +20,11 @@
         <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
         <span *ngIf="post.dontLoveIts > 0"> {{ post.dontLoveIts }} </span>
       </button>
-      <button class="btn btn-danger pull-right" (click)="onRemove()">
+      <button class="btn btn-danger pull-right"
+              mwlConfirmationPopover
+              popoverMessage="Le post '{{ post.title }}' sera definitivement supprimé. Voulez-vous continuer ?"
+              placement="left"
+              (confirm)="onRemove()" >
         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
       </button>
     </div>

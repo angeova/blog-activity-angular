@@ -11,6 +11,7 @@ import { NewPostComponent } from './post-list/new-post/new-post.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {PostsService} from './services/posts.service';
+import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 
 const appRoutes: Routes = [
   {path: 'posts', component: PostListComponent},
@@ -32,7 +33,10 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger' // set defaults here
+    })
   ],
   providers: [
     PostsService
