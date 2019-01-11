@@ -1,25 +1,11 @@
-<h2>Posts</h2>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Posts</h2>
 
-<ul class="list-group">
-  <app-post-list-item *ngFor="let post of posts"
-                      [title]="post.title"
-                      [content]="post.content"
-                      [createdAt]="post.createdAt"></app-post-list-item>
-  <br>
-  <div class="row">
-    <div class="col-md-6">
-      <fieldset>
-        <legend>Add new post</legend>
-        <div class="form-group">
-          <label for="title">title</label>
-          <input type="text" id="title" class="form-control" [(ngModel)]="postToAdd.title">
-        </div>
-        <div class="form-group">
-          <label for="content">content</label>
-          <textarea rows="4" id="content" class="form-control" [(ngModel)]="postToAdd.content"></textarea>
-        </div>
-        <button class="btn btn-default" (click)="onAddPost(postToAdd)">Post</button>
-      </fieldset>
-    </div>
+    <ul class="list-group">
+      <app-post-list-item *ngFor="let postItem of posts"
+                          [post]="postItem"></app-post-list-item>
+    </ul>
+    <!--<button class="btn btn-primary" (click)="onNewPost()">Nouveau post</button>-->
   </div>
-</ul>
+</div>

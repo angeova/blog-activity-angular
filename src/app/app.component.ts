@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {Post} from './Post';
+import {Component} from '@angular/core';
+import {Post} from './models/Post';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,17 @@ import {Post} from './Post';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  listOfPost : Array<Post> = [];
 
   constructor() {
-    this.listOfPost.push(new Post('mon post test', 'on verra si ça marche bien'));
-    this.listOfPost.push(new Post('mon post de validation', 'on a vu et ça marche bien'));
-    this.listOfPost.push(new Post('mon post', 'bah voila'));
+    // Initialize Firebase
+    const config = {
+      apiKey: 'AIzaSyDisk49SIeh9oCpGhjvhwDGwSU4o_xcsfA',
+      authDomain: 'blog-activity.firebaseapp.com',
+      databaseURL: 'https://blog-activity.firebaseio.com',
+      projectId: 'blog-activity',
+      storageBucket: 'blog-activity.appspot.com',
+      messagingSenderId: '743234098858'
+    };
+    firebase.initializeApp(config);
   }
 }

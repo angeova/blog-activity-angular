@@ -1,0 +1,28 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > post.dontLoveIts,
+                'list-group-item-danger': post.loveIts < post.dontLoveIts}">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 style="margin-top: 0px !important; font-weight: bold;">{{ post.title }}</h3>
+    </div>
+    <div class="col-md-4">
+      <p style="text-align: right; font-style: italic">{{ post.createdAt }}</p>
+    </div>
+    <div class="col-md-12">
+      <p>{{ post.content }}</p>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-success" (click)="onLoveIt()">
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        <span *ngIf="post.loveIts > 0"> {{ post.loveIts }} </span>
+      </button>
+      <button class="btn btn-danger" (click)="onDontLoveIt()">
+        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+        <span *ngIf="post.dontLoveIts > 0"> {{ post.dontLoveIts }} </span>
+      </button>
+      <button class="btn btn-danger pull-right" (click)="onRemove()">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</li>
